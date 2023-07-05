@@ -1,0 +1,54 @@
+﻿@model IEnumerable<BusinessObject.Brand>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Brand</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LogoUrl)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Status)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                    <img src="@Html.DisplayFor(modelItem => item.LogoUrl)" />
+            </td>            
+            <td>
+                @Html.DisplayFor(modelItem => item.Status)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id=item.BrandId }) |
+                @Html.ActionLink("Details", "Details", new {  id=item.BrandId }) |
+                @Html.ActionLink("Delete", "Delete", new {  id=item.BrandId })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+<style>
+    img{
+        width: 200px;
+        height: 200px;
+    }
+</style>

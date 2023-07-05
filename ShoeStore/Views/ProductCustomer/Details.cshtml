@@ -1,0 +1,137 @@
+﻿@model BusinessObject.Product
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!-- Page Header Start -->
+<div class="container-fluid bg-secondary mb-5">
+    <div class="d-flex flex-column align-items-center justify-content-center" style="min-height: 180px">
+        <h1 class="font-weight-semi-bold text-uppercase mb-3">Shop Detail</h1>
+        <div class="d-inline-flex">
+            <p class="m-0"><a href="">Home</a></p>
+            <p class="m-0 px-2">-</p>
+            <p class="m-0">Shop Detail</p>
+        </div>
+    </div>
+</div>
+
+<h5 style="color: red"></h5>
+<!-- Page Header End -->
+<!-- Shop Detail Start -->
+<div class="container-fluid py-5">
+    <div class="row px-xl-5">
+        <div class="col-lg-5 pb-5">
+            <div>
+                <div class="border">
+                    <div class="active">
+                        <img src="~/@Html.DisplayFor(model => model.ImageUrl)" alt="Image" class="detail-img">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-7 pb-5 content-right">
+            <h3 class="font-weight-semi-bold">@Model.Name</h3>
+            <div class="d-flex mb-3">
+                <div class="text-primary mr-2">
+                    <small class="fas fa-star"></small>
+                    <small class="fas fa-star"></small>
+                    <small class="fas fa-star"></small>
+                    <small class="fas fa-star-half-alt"></small>
+                    <small class="far fa-star"></small>
+                </div>
+                <small class="pt-1">(50 Reviews)</small>
+            </div>
+            <h3 class="font-weight-semi-bold mb-4">$@Model.Price</h3>
+            <p class="mb-4">
+                @Model.Description
+            </p>
+            <div class="d-flex align-items-center mb-4 pt-2">
+              
+                <div class="input-group quantity mr-3" style="width: 130px;">
+                    
+                    <div class="input-group-btn">
+                        <button class="btn btn-primary btn-minus">
+                            <i class="fa fa-minus"></i>
+                        </button>
+                    </div>
+                    <input type="text" class="form-control bg-secondary text-center input-quantity-cart" quan="@ViewBag.Quantity" value="@ViewBag.Value">
+                    <div class="input-group-btn">
+                            <button class="btn btn-primary btn-plus">
+                                <i class="fa fa-plus"></i>
+                            </button>
+                    </div>
+                  
+                </div>
+                @using (Html.BeginForm("Update_Quantity_Cart", "ShoppingCart"))
+                {
+                    <input type="hidden" name="status" value="detail"/>
+                    <input type="hidden" class="form-control bg-secondary text-center input-quantity" value="@ViewBag.Value" name="quantity">
+                    <input type="hidden" value="@Model.ProductId" name="proId" />
+                    <button class="btn btn-primary px-3 btn-cart" type="submit"><i class="fa fa-shopping-cart mr-1"></i> Add To Cart</button>
+                }
+            </div>
+
+        </div>
+    </div>
+</div>
+
+@section scripts{
+    <script>
+        
+        $(document).ready(function () {
+            var newVal = 1;
+            count = 0;
+            var quantity = $(".input-quantity-cart").attr("quan");
+
+            $('.quantity button').on('click', function () {  
+                console.log(quantity);
+                var button = $(this);
+                var oldValue = button.parent().parent().find('.input-quantity-cart').val();
+                if (button.hasClass('btn-plus')) {
+                    newVal = parseFloat(oldValue) + 1;
+                    if(quantity == 0){
+                        alert("Out of stock");
+                        newVal = quantity;
+                    }
+                    else if (newVal > quantity) {
+                        alert("Maximum is " + quantity);
+                        newVal = quantity;
+                    }
+
+                } else {
+                    if (oldValue > 1) { 
+                        newVal = parseFloat(oldValue) - 1;
+                        if (newVal > quantity) {
+                            alert("Maximum is " + quantity);
+                            newVal = quantity;
+                        }
+                    } else {
+                        newVal = 0;
+                    }
+                }
+                
+                button.parent().parent().find('.input-quantity-cart').val(newVal);
+                $('.input-quantity').val(newVal);
+            });
+
+            $('.input-quantity-cart').on('blur', function () {
+                var button = $(this);
+                var oldValue = parseInt(button.parent().parent().find('.input-quantity-cart').val());
+                if (oldValue > quantity || oldValue < 0) {
+                    console.log("Here");
+                    alert("Maximum is " + quantity);
+                    oldValue = quantity;
+                }
+                if(isNaN(oldValue)){
+                    alert("Please enter number!!!");
+                    oldValue = 1;
+                }
+                button.parent().parent().find('.input-quantity-cart').val(oldValue);
+                $('.input-quantity').val(oldValue);
+            });
+        });
+    </script>
+}

@@ -1,0 +1,63 @@
+﻿@model IEnumerable<BusinessObject.OrderDetail>
+
+@{
+    ViewData["Title"] = "ViewOrder";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>ViewOrder</h1>
+
+@foreach (var order in ViewBag.Order)
+{
+    <h5 style="margin: 50px 0 20px 0; color:lightcoral;">@order.Customer.Email</h5>
+<table class="table">
+    <thead>
+        <tr>
+            <td>
+                @Html.DisplayNameFor(model => model.Product.Name)
+            </td>
+            <td>
+                @Html.DisplayNameFor(model => model.Product.ImageUrl)
+            </td>
+            <td>
+                @Html.DisplayNameFor(model => model.Quantity)
+            </td>
+            <td>
+                @Html.DisplayNameFor(model => model.Price)
+            </td>
+            <td>
+                @Html.DisplayNameFor(model => model.Order.OrderDate)
+            </td>
+        </tr>
+    </thead>
+    <tbody>
+  
+          
+            @foreach (var item in Model)
+            {
+
+                @if (item.OrderId == order.OrderId)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Product.Name)
+                        </td>
+                        <td>
+                            <img src="~/@Html.DisplayFor(modelItem => item.Product.ImageUrl)" style="width: 200px; height: 200px;" />
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Quantity)
+                        </td>
+                        <td>
+                            $@Html.DisplayFor(modelItem => item.Price)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Order.OrderDate)
+                        </td>
+                    </tr>
+                }
+            }
+        
+    </tbody>
+</table>
+}
