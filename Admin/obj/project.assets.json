@@ -6207,11 +6207,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\CodeDao\\ShoeStoreManagement\\Admin\\Admin.csproj",
+      "projectUniqueName": "D:\\CodeDao\\PRN221_FinalProject\\Admin\\Admin.csproj",
       "projectName": "Admin",
-      "projectPath": "D:\\CodeDao\\ShoeStoreManagement\\Admin\\Admin.csproj",
+      "projectPath": "D:\\CodeDao\\PRN221_FinalProject\\Admin\\Admin.csproj",
       "packagesPath": "C:\\Users\\ADMIN\\.nuget\\packages\\",
-      "outputPath": "D:\\CodeDao\\ShoeStoreManagement\\Admin\\obj\\",
+      "outputPath": "D:\\CodeDao\\PRN221_FinalProject\\Admin\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\ADMIN\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -6228,11 +6228,11 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "projectReferences": {
-            "D:\\CodeDao\\ShoeStoreManagement\\BusinessObject\\BusinessObject.csproj": {
-              "projectPath": "D:\\CodeDao\\ShoeStoreManagement\\BusinessObject\\BusinessObject.csproj"
+            "D:\\CodeDao\\PRN221_FinalProject\\BusinessObject\\BusinessObject.csproj": {
+              "projectPath": "D:\\CodeDao\\PRN221_FinalProject\\BusinessObject\\BusinessObject.csproj"
             },
-            "D:\\CodeDao\\ShoeStoreManagement\\DataAccess\\DataAccess.csproj": {
-              "projectPath": "D:\\CodeDao\\ShoeStoreManagement\\DataAccess\\DataAccess.csproj"
+            "D:\\CodeDao\\PRN221_FinalProject\\DataAccess\\DataAccess.csproj": {
+              "projectPath": "D:\\CodeDao\\PRN221_FinalProject\\DataAccess\\DataAccess.csproj"
             }
           }
         }

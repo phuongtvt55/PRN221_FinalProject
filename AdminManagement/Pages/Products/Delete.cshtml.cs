@@ -11,11 +11,11 @@ namespace AdminManagement.Pages.Products
 {
     public class DeleteModel : PageModel
     {
-        private readonly BusinessObject.ShoesStoreContext _context;
+        private readonly ShoesStoreContext _context;
 
-        public DeleteModel(BusinessObject.ShoesStoreContext context)
+        public DeleteModel()
         {
-            _context = context;
+            _context = new ShoesStoreContext();
         }
 
         [BindProperty]
@@ -49,7 +49,9 @@ namespace AdminManagement.Pages.Products
 
             if (Product != null)
             {
-                _context.Products.Remove(Product);
+                //Change status to zero
+                Product.Status = 0;
+                _context.Products.Update(Product);
                 await _context.SaveChangesAsync();
             }
 

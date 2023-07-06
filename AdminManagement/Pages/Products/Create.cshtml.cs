@@ -6,16 +6,25 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using BusinessObject;
+using Microsoft.AspNetCore.Http;
+using System.IO;
+using DataAccess.Repository;
+using Microsoft.AspNetCore.Hosting;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace AdminManagement.Pages.Products
 {
+
     public class CreateModel : PageModel
     {
-       
+        IProductRepositoty productRepositoty = null;
+        private readonly IWebHostEnvironment _webHostEnvironment;
 
-        public CreateModel()
+
+        public CreateModel(IWebHostEnvironment webHostEnvironment)
         {
-        
+            _webHostEnvironment = webHostEnvironment;
+            productRepositoty = new ProductRepository();
         }
 
         public IActionResult OnGet()
@@ -26,21 +35,52 @@ namespace AdminManagement.Pages.Products
         }
 
         [BindProperty]
+        
         public Product Product { get; set; }
 
         // To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
-        public async Task<IActionResult> OnPostAsync()
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> OnPostAsync(IFormFile image)
         {
-            var _context = new ShoesStoreContext();
-            if (!ModelState.IsValid)
+            try
             {
-                return Page();
+                if (image == null || image.Length == 0)
+                    return NotFound();
+
+
+                Product.ImageUrl = await UploadImage(image);
+                Product.Status = 1;
+                productRepositoty.Insert(Product);
+
+                return RedirectToPage("./Index");
+            }
+            catch (Exception ex)
+            {
+               
+                return NotFound();
+            }
+            
+        }
+
+        public async Task<string> UploadImage(IFormFile image)
+        {
+            if (image == null || image.Length == 0)
+                return "ErrorImg";
+
+            string fileName = Guid.NewGuid().ToString() + Path.GetExtension(image.FileName);
+            string path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/images", fileName);
+            string path2 = path.Replace("AdminManagement", "ShoeStore");
+
+            using (var stream = new FileStream(path, FileMode.Create))
+            {
+                await image.CopyToAsync(stream);
+            }
+            using (var stream = new FileStream(path2, FileMode.Create))
+            {
+                await image.CopyToAsync(stream);
             }
 
-            _context.Products.Add(Product);
-            await _context.SaveChangesAsync();
-
-            return RedirectToPage("./Index");
+            return "images/" + fileName;
         }
     }
 }

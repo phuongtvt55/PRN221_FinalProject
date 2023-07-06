@@ -1,0 +1,52 @@
+﻿@page
+@model AdminManagement.Pages.Brands.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Brand</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Brand.Name)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Brand.Name)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Brand.LogoUrl)
+        </dt>
+        <dd class="col-sm-10">
+            <img src="~/@Html.DisplayFor(model => model.Brand.LogoUrl)" />
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Brand.Status)
+        </dt>
+        <dd class="col-sm-10">
+            @if (Model.Brand.Status == 1)
+            {
+                <p class="text-success">Stocking</p>
+            }
+            else
+            {
+                <p class="text-danger">Delete</p>
+            }
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.Brand.BrandId">Edit</a> |
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+<style>
+    img {
+        width: 200px;
+        height: 200px;
+    }
+</style>        
