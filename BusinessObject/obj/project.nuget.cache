@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "tjPu/nsn1s2ATZobPlpQQlNm4lL4veBUXim+nTo9CAgrY9qNb139/ut+yMFHkvoeROIgV5zHeO+vxW3zeSL8rA==",
+  "dgSpecHash": "0RLSG2vhpZGigO4/cGJAlMR9LK02bexYCoUloplfnDMY2NSb3Ap9pP6YG9FnTBa3aULedjudniinXGuQrwX3zA==",
   "success": true,
-  "projectFilePath": "D:\\CodeDao\\ShoeStoreManagement\\BusinessObject\\BusinessObject.csproj",
+  "projectFilePath": "D:\\CodeDao\\PRN221_FinalProject\\BusinessObject\\BusinessObject.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\ADMIN\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\ADMIN\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",

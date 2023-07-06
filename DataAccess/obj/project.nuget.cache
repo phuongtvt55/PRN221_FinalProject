@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "xchtoSHrnIf91X72Z73PJPk1b/yQ6Z6ZqR53MoUXPtdydK0RPs8ek11Rtlhfia+8IRItanqBp0OTpGn8usYmuA==",
+  "dgSpecHash": "NZAFUTkYy+ejpWkGU++ClBeAle7qUHkVxUOjZGYHwlWjQWeRYt9ej1812mwVQdlXf+rnIzJ+cwOG6OIKWJr4pw==",
   "success": true,
-  "projectFilePath": "D:\\CodeDao\\ShoeStoreManagement\\DataAccess\\DataAccess.csproj",
+  "projectFilePath": "D:\\CodeDao\\PRN221_FinalProject\\DataAccess\\DataAccess.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\ADMIN\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
     "C:\\Users\\ADMIN\\.nuget\\packages\\microsoft.data.sqlclient\\2.0.1\\microsoft.data.sqlclient.2.0.1.nupkg.sha512",

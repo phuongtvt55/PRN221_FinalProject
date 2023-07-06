@@ -6237,11 +6237,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\CodeDao\\ShoeStoreManagement\\BusinessObject\\BusinessObject.csproj",
+      "projectUniqueName": "D:\\CodeDao\\PRN221_FinalProject\\BusinessObject\\BusinessObject.csproj",
       "projectName": "BusinessObject",
-      "projectPath": "D:\\CodeDao\\ShoeStoreManagement\\BusinessObject\\BusinessObject.csproj",
+      "projectPath": "D:\\CodeDao\\PRN221_FinalProject\\BusinessObject\\BusinessObject.csproj",
       "packagesPath": "C:\\Users\\ADMIN\\.nuget\\packages\\",
-      "outputPath": "D:\\CodeDao\\ShoeStoreManagement\\BusinessObject\\obj\\",
+      "outputPath": "D:\\CodeDao\\PRN221_FinalProject\\BusinessObject\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\ADMIN\\AppData\\Roaming\\NuGet\\NuGet.Config",

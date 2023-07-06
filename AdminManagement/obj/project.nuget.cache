@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "rDgDlLTGaqQC5D9ou9pqtaUbVWmcHilqUHL/S6vSDNAr/t6Cl1bxT2/C1LwttuMhfZFVGpfWUIVTDZ/et0Y2nA==",
+  "dgSpecHash": "VP3cZuFKvtdOmwZDVEFBxzp2b/PO6oIIBzCrhpSlVtzdOvLdik5xnQ4nFkILNjKarUrs+J8GPWnpID/dFY0Ldw==",
   "success": true,
-  "projectFilePath": "D:\\CodeDao\\ShoeStoreManagement\\AdminManagement\\AdminManagement.csproj",
+  "projectFilePath": "D:\\CodeDao\\PRN221_FinalProject\\AdminManagement\\AdminManagement.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\ADMIN\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\ADMIN\\.nuget\\packages\\microsoft.aspnetcore.html.abstractions\\2.2.0\\microsoft.aspnetcore.html.abstractions.2.2.0.nupkg.sha512",

@@ -41,7 +41,14 @@
             @Html.DisplayNameFor(model => model.Product.Status)
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Product.Status)
+            @if(Model.Product.Status == 1)
+            {
+                <p class="text-success">Stocking</p>
+            }
+            else
+            {
+                <p class="btn-danger">Delete</p>
+            }
         </dd>
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Product.Quantity)

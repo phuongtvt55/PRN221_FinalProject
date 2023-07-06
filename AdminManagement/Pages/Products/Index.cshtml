@@ -54,8 +54,15 @@
                 @Html.DisplayFor(modelItem => item.Price)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Status)
-            </td>
+                    @if(item.Status == 0)
+                    {
+                        <p class="text-danger">Delete</p>
+                    }
+                    else
+                    {
+                        <p class="text-success">Stocking</p>
+                    }
+                </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Quantity)
             </td>

@@ -7,72 +7,92 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using BusinessObject;
+using Microsoft.AspNetCore.Http;
+using System.IO;
+using DataAccess.Repository;
+using Microsoft.AspNetCore.Hosting;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace AdminManagement.Pages.Products
 {
     public class EditModel : PageModel
     {
-        private readonly BusinessObject.ShoesStoreContext _context;
+        IProductRepositoty productRepositoty = null;
+        private readonly IWebHostEnvironment _webHostEnvironment;
 
-        public EditModel(BusinessObject.ShoesStoreContext context)
+
+        public EditModel(IWebHostEnvironment webHostEnvironment)
         {
-            _context = context;
+            _webHostEnvironment = webHostEnvironment;
+            productRepositoty = new ProductRepository();
         }
 
         [BindProperty]
         public Product Product { get; set; }
 
-        public async Task<IActionResult> OnGetAsync(int? id)
+        public async Task<IActionResult> OnGetAsync(int id)
         {
             if (id == null)
             {
                 return NotFound();
             }
+            Product = productRepositoty.GetProductById(id);
 
-            Product = await _context.Products
-                .Include(p => p.Brand).FirstOrDefaultAsync(m => m.ProductId == id);
 
             if (Product == null)
             {
                 return NotFound();
             }
-           ViewData["BrandId"] = new SelectList(_context.Brands, "BrandId", "LogoUrl");
+            var _context = new ShoesStoreContext();
+           ViewData["BrandId"] = new SelectList(_context.Brands, "BrandId", "Name");
             return Page();
         }
 
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see https://aka.ms/RazorPagesCRUD.
-        public async Task<IActionResult> OnPostAsync()
+        public async Task<IActionResult> OnPostAsync(int id, IFormFile image)
         {
-            if (!ModelState.IsValid)
-            {
-                return Page();
-            }
-
-            _context.Attach(Product).State = EntityState.Modified;
-
             try
             {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!ProductExists(Product.ProductId))
+                if (id != Product.ProductId)
                 {
                     return NotFound();
                 }
-                else
-                {
-                    throw;
-                }
+
+                Product.ImageUrl = await UploadImage(image);
+
+                productRepositoty.Update(Product);
+
+                return RedirectToPage("./Index");
+            }
+            catch (Exception ex)
+            {
+               
+                return NotFound();
+            }
+        }
+
+        public async Task<string> UploadImage(IFormFile image)
+        {
+            if (image == null || image.Length == 0)
+                return "ErrorImg";
+
+            string fileName = Guid.NewGuid().ToString() + Path.GetExtension(image.FileName);
+            string path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/images", fileName);
+            string path2 = path.Replace("AdminManagement", "ShoeStore");
+
+            using (var stream = new FileStream(path, FileMode.Create))
+            {
+                await image.CopyToAsync(stream);
+            }
+            using (var stream = new FileStream(path2, FileMode.Create))
+            {
+                await image.CopyToAsync(stream);
             }
 
-            return RedirectToPage("./Index");
+            return "images/" + fileName;
         }
 
-        private bool ProductExists(int id)
-        {
-            return _context.Products.Any(e => e.ProductId == id);
-        }
+  
     }
 }
