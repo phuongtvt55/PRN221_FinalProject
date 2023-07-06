@@ -9,6 +9,7 @@ namespace BusinessObject
     {
         public Account()
         {
+            Comments = new HashSet<Comment>();
             Orders = new HashSet<Order>();
         }
 
@@ -18,6 +19,7 @@ namespace BusinessObject
         public string Password { get; set; }
         public int? Role { get; set; }
 
+        public virtual ICollection<Comment> Comments { get; set; }
         public virtual ICollection<Order> Orders { get; set; }
     }
 }
