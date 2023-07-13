@@ -1,0 +1,184 @@
+﻿<Window x:Class="Dash.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Dash"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="550" Width="960"
+        xmlns:hc="https://handyorg.github.io/handycontrol"
+        xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf" AllowsTransparency="True" WindowStyle="None" WindowStartupLocation="CenterScreen" MouseDown="Window_MouseDown">
+    <Grid>
+        <StackPanel HorizontalAlignment="Left" Height="550" VerticalAlignment="Top" Width="220" Background="#FF6F2CFF">
+            <StackPanel Height="65" Orientation="Horizontal">
+                <Image Height="40" Margin="10,15,0,0" Source="icons8-dashboard-50.png" Width="40"/>
+                <TextBlock HorizontalAlignment="Left" Margin="10,30,0,15" TextWrapping="Wrap" Text="Dashboard" Width="150" FontWeight="Bold" Foreground="#FFFBFBFB"/>
+
+            </StackPanel>
+            <Path Data="M0,60 L220,60" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="1" Margin="0,10,-1,0" Stretch="Fill" Stroke="#FFDEDDDD" VerticalAlignment="Top" Width="221"/>
+
+            <hc:SideMenu BorderThickness="1" Margin="0,32" Background="{x:Null}" BorderBrush="{x:Null}" SideBrush="{x:Null}" SubSideBrush="{x:Null}" Foreground="{x:Null}">
+                <hc:Interaction.Triggers>
+                    <hc:EventTrigger EventName="SelectionChanged">
+                        <hc:EventToCommand Command="{Binding SwitchItemCmd}" PassEventArgsToCommand="True" />
+                    </hc:EventTrigger>
+                </hc:Interaction.Triggers>
+                <hc:SideMenuItem Header="Dashboard" Background="{x:Null}" Foreground="White">
+                    <hc:SideMenuItem.Icon>
+                        <Image  Width="24" Height="24" Source="icons8-home-48.png"/>
+                    </hc:SideMenuItem.Icon>
+                </hc:SideMenuItem>
+                <hc:SideMenuItem Header="Product Stock" Background="{x:Null}" Foreground="White">
+                    <hc:SideMenuItem.Icon>
+                        <Image  Width="24" Height="24" Source="icons8-pie-chart-30.png"/>
+                    </hc:SideMenuItem.Icon>
+                </hc:SideMenuItem>
+                <hc:SideMenuItem Header="Revenues" Background="{x:Null}" Foreground="White">
+                    <hc:SideMenuItem.Icon>
+                        <Image  Width="24" Height="24" Source="icons8-graph-60.png"/>
+                    </hc:SideMenuItem.Icon>
+                </hc:SideMenuItem>
+                <hc:SideMenuItem Header="Orders" Background="{x:Null}" Foreground="White">
+                    <hc:SideMenuItem.Icon>
+                        <Image  Width="24" Height="24" Source="icons8-document-30.png"/>
+                    </hc:SideMenuItem.Icon>
+                </hc:SideMenuItem>
+                <hc:SideMenuItem Header="Statistics" Background="{x:Null}" Foreground="White">
+                    <hc:SideMenuItem.Icon>
+                        <Image  Width="24" Height="24" Source="icons8-statistics-30.png"/>
+                    </hc:SideMenuItem.Icon>
+                </hc:SideMenuItem>
+                <hc:SideMenuItem Header="Message" Background="{x:Null}" Foreground="White">
+                    <hc:SideMenuItem.Icon>
+                        <Image  Width="24" Height="24" Source="icons8-message-read-30.png"/>
+                    </hc:SideMenuItem.Icon>
+                </hc:SideMenuItem>
+                <hc:SideMenuItem Header="Profile" Background="{x:Null}" Foreground="White">
+                    <hc:SideMenuItem.Icon>
+                        <Image  Width="24" Height="24" Source="icons8-male-user-30.png"/>
+                    </hc:SideMenuItem.Icon>
+                </hc:SideMenuItem>
+                <hc:SideMenuItem Header="Settings" Background="{x:Null}" Foreground="White">
+                    <hc:SideMenuItem.Icon>
+                        <Image  Width="24" Height="24" Source="icons8-settings-30.png"/>
+                    </hc:SideMenuItem.Icon>
+                </hc:SideMenuItem>
+            </hc:SideMenu>
+
+        </StackPanel>
+        <hc:SearchBar ShowClearButton="True" hc:InfoElement.TitleWidth="140" hc:InfoElement.Placeholder="Search"  Margin="255,21.48,30,495.52"/>
+        <TextBlock HorizontalAlignment="Left" Height="35" Margin="255,75,0,0" TextWrapping="Wrap" Text="Dashboard" VerticalAlignment="Top" Width="230" FontWeight="Bold" FontSize="18"/>
+        <hc:Card Content="" HorizontalAlignment="Left" Height="80" Margin="255,115,0,0" VerticalAlignment="Top" Width="160">
+            <hc:Card.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF7724F0" Offset="1"/>
+                    <GradientStop Color="#FF924EF3"/>
+                </LinearGradientBrush>
+            </hc:Card.Background>
+        </hc:Card>
+        <hc:Card Content="" HorizontalAlignment="Left" Height="80" Margin="435,115,0,0" VerticalAlignment="Top" Width="160">
+            <hc:Card.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FFF9D945" Offset="0"/>
+                    <GradientStop Color="#FFF5CA09" Offset="1"/>
+                </LinearGradientBrush>
+            </hc:Card.Background>
+        </hc:Card>
+        <hc:Card Content="" HorizontalAlignment="Left" Height="80" Margin="255,210,0,0" VerticalAlignment="Top" Width="160">
+            <hc:Card.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FFFF43B2" Offset="0"/>
+                    <GradientStop Color="#FFF0249D" Offset="1"/>
+                </LinearGradientBrush>
+            </hc:Card.Background>
+        </hc:Card>
+        <hc:Card Content="" HorizontalAlignment="Left" Height="80" Margin="435,210,0,0" VerticalAlignment="Top" Width="160">
+            <hc:Card.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF4CB9F7" Offset="0"/>
+
+
+                    <GradientStop Color="#FF24A6F0" Offset="1"/>
+                </LinearGradientBrush>
+            </hc:Card.Background>
+        </hc:Card>
+        <Rectangle HorizontalAlignment="Left" Height="50" Margin="270,117,0,0" VerticalAlignment="Top" Width="40">
+            <Rectangle.Fill>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Offset="0"/>
+                    <GradientStop Color="#7FFFFFFF" Offset="1"/>
+                </LinearGradientBrush>
+            </Rectangle.Fill>
+        </Rectangle>
+        <Rectangle HorizontalAlignment="Left" Height="50" Margin="450,117,0,0" VerticalAlignment="Top" Width="40">
+            <Rectangle.Fill>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Offset="0"/>
+                    <GradientStop Color="#7FFFFFFF" Offset="1"/>
+                </LinearGradientBrush>
+            </Rectangle.Fill>
+        </Rectangle>
+        <Rectangle HorizontalAlignment="Left" Height="50" Margin="270,213,0,0" VerticalAlignment="Top" Width="40">
+            <Rectangle.Fill>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Offset="0"/>
+                    <GradientStop Color="#7FFFFFFF" Offset="1"/>
+                </LinearGradientBrush>
+            </Rectangle.Fill>
+        </Rectangle>
+        <Rectangle HorizontalAlignment="Left" Height="50" Margin="450,213,0,0" VerticalAlignment="Top" Width="40">
+            <Rectangle.Fill>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Offset="0"/>
+                    <GradientStop Color="#7FFFFFFF" Offset="1"/>
+                </LinearGradientBrush>
+            </Rectangle.Fill>
+        </Rectangle>
+        <Image HorizontalAlignment="Left" Height="30" Margin="275,131.5,0,0" VerticalAlignment="Top" Width="30" Source="icons8-graph-49.png"/>
+        <Image HorizontalAlignment="Left" Height="30" Margin="455,131.5,0,0" VerticalAlignment="Top" Width="30" Source="icons8-group-32.png"/>
+        <Image HorizontalAlignment="Left" Height="30" Margin="275,226,0,0" VerticalAlignment="Top" Width="30" Source="icons8-package-32.png"/>
+        <Image HorizontalAlignment="Left" Height="30" Margin="455,226,0,0" VerticalAlignment="Top" Width="30" Source="icons8-pie-chart-60.png"/>
+        <hc:Card Content="" HorizontalAlignment="Left" Height="175" Margin="615,115,0,0" VerticalAlignment="Top" Width="315" Background="#FFFDFDFD"/>
+        <lvc:CartesianChart Series="{Binding SeriesCollection}" LegendLocation="None" Margin="625,140,40,270" >
+            <lvc:CartesianChart.AxisY>
+                <lvc:Axis Title="Sales" LabelFormatter="{Binding YFormatter}"></lvc:Axis>
+            </lvc:CartesianChart.AxisY>
+            <lvc:CartesianChart.AxisX>
+                <lvc:Axis Title="Month" Labels="{Binding Labels}"></lvc:Axis>
+            </lvc:CartesianChart.AxisX>
+        </lvc:CartesianChart>
+        <TextBlock HorizontalAlignment="Left" Height="25" Margin="625,118.55,0,0" TextWrapping="Wrap" Text="Revenue" VerticalAlignment="Top" Width="140" FontWeight="Bold"/>
+        <hc:Card Content="" HorizontalAlignment="Left" Height="235" Margin="255,305,0,0" VerticalAlignment="Top" Width="340" Background="#FFFDFDFD"/>
+        <lvc:CartesianChart Series="{Binding PSeriesCollection}" LegendLocation="None" Margin="267,345,375,25" RenderTransformOrigin="0.5,0.439" Loaded="CartesianChart_Loaded">
+            <lvc:CartesianChart.AxisY>
+                <lvc:Axis Title="Browser" Labels="{Binding Labels}" />
+            </lvc:CartesianChart.AxisY>
+            <lvc:CartesianChart.AxisX>
+                <lvc:Axis LabelFormatter="{Binding Formatter}" />
+            </lvc:CartesianChart.AxisX>
+            <lvc:CartesianChart.DataTooltip>
+                <lvc:DefaultTooltip SelectionMode="SharedYValues"></lvc:DefaultTooltip>
+            </lvc:CartesianChart.DataTooltip>
+        </lvc:CartesianChart>
+        <TextBlock HorizontalAlignment="Left" Height="25" Margin="267,309,0,0" TextWrapping="Wrap" Text="Order Status" VerticalAlignment="Top" Width="140" FontWeight="Bold" Padding="0,5,0,0"/>
+        <hc:Card Content="" HorizontalAlignment="Left" Height="235" Margin="615,305,0,0" VerticalAlignment="Top" Width="315" Background="#FFFDFDFD"/>
+        <TextBlock HorizontalAlignment="Left" Height="25" Margin="625,309,0,0" TextWrapping="Wrap" Text="Product Stock" VerticalAlignment="Top" Width="140" FontWeight="Bold" Padding="0,5,0,0"/>
+        <lvc:PieChart Name="Chart" Series="{Binding DSeriesCollection}" 
+                      LegendLocation="Right" InnerRadius="40" Margin="630,334,40,40">
+            <lvc:PieChart.ChartLegend>
+                <lvc:DefaultLegend BulletSize="20"></lvc:DefaultLegend>
+            </lvc:PieChart.ChartLegend>
+            <lvc:PieChart.DataTooltip>
+                <lvc:DefaultTooltip BulletSize="20"></lvc:DefaultTooltip>
+            </lvc:PieChart.DataTooltip>
+        </lvc:PieChart>
+        <TextBlock HorizontalAlignment="Left" Height="24.4" Margin="315,125.6,0,0" TextWrapping="Wrap" Text="158054" VerticalAlignment="Top" Width="92" FontWeight="Bold" Padding="0" Foreground="White" FontSize="16"/>
+        <TextBlock HorizontalAlignment="Left" Height="24.4" Margin="315,147,0,0" TextWrapping="Wrap" Text="Visits Today" VerticalAlignment="Top" Width="92" Padding="0" Foreground="White"/>
+        <TextBlock HorizontalAlignment="Left" Height="24.4" Margin="495,125.6,0,0" TextWrapping="Wrap" Text="562" VerticalAlignment="Top" Width="92" FontWeight="Bold" Padding="0" Foreground="White" FontSize="16"/>
+        <TextBlock HorizontalAlignment="Left" Height="24.4" Margin="495,147,0,0" TextWrapping="Wrap" Text="New Users" VerticalAlignment="Top" Width="92" Padding="0" Foreground="White"/>
+        <TextBlock HorizontalAlignment="Left" Height="24.4" Margin="315,217.2,0,0" TextWrapping="Wrap" Text="752" VerticalAlignment="Top" Width="92" FontWeight="Bold" Padding="0" Foreground="White" FontSize="16"/>
+        <TextBlock HorizontalAlignment="Left" Height="24.4" Margin="315,238.6,0,0" TextWrapping="Wrap" Text="New Orders" VerticalAlignment="Top" Width="92" Padding="0" Foreground="White"/>
+        <TextBlock HorizontalAlignment="Left" Height="24.4" Margin="495,217.2,0,0" TextWrapping="Wrap" Text="$32562" VerticalAlignment="Top" Width="92" FontWeight="Bold" Padding="0" Foreground="White" FontSize="16"/>
+        <TextBlock HorizontalAlignment="Left" Height="24.4" Margin="495,238.6,0,0" TextWrapping="Wrap" Text="Total Sales" VerticalAlignment="Top" Width="92" Padding="0" Foreground="White"/>
+    </Grid>
+</Window>

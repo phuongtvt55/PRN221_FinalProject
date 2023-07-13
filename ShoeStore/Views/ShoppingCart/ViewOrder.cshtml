@@ -27,7 +27,7 @@
                 @Html.DisplayNameFor(model => model.Order.OrderDate)
             </th>
             <th>
-                Email
+                @Html.DisplayNameFor(model => model.Order.OrderDate)
             </th>
         </tr>
     </thead>
@@ -51,10 +51,16 @@
                 @Html.DisplayFor(modelItem => item.Order.OrderDate)
             </td>
             
-                @foreach(var i in ViewBag.Email){
-                    if(item.Order.CustomerId == i.CustomerId){
+                @foreach(var i in ViewBag.Order){
+                    if(item.OrderId == i.OrderId){
                         <td>
-                            @i.Email
+                            @if(i.OrderStatusId == 1)
+                            {
+                                <p class="btn btn-success">@i.OrderStatus.StatusName</p>
+                            }else if(i.OrderStatusId == 2)
+                            {
+                                <p class="btn btn-danger">@i.OrderStatus.StatusName</p>
+                            }
                         </td>
                     }
                 }

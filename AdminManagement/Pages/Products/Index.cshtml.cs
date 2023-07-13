@@ -25,34 +25,6 @@ namespace AdminManagement.Pages.Products
 
         public async Task OnGetAsync()
         {
-            var dbContext = new ShoesStoreContext();
-            var result = dbContext.Orders
-                        .GroupBy(o => new { Year = o.OrderDate.Value.Year, Month = o.OrderDate.Value.Month })
-                        .Select(g => new
-                        {
-                            Year = g.Key.Year,
-                            Month = g.Key.Month,
-                            TotalPrice = g.Sum(o => o.TotalPrice)
-                        })
-                        .ToList();
-
-            var currentYear = DateTime.Now.Year;
-
-            var result1 = dbContext.Orders
-                .Where(o => o.OrderDate.Value.Year == currentYear)
-                .GroupBy(o => new { Year = o.OrderDate.Value.Year, Month = o.OrderDate.Value.Month })
-                .Select(g => new
-                {
-                    Year = g.Key.Year,
-                    Month = g.Key.Month,
-                    TotalPrice = g.Sum(o => o.TotalPrice)
-                })
-                .OrderBy(g => g.Month)
-                .ToList();
-            result.ForEach(o =>
-            {
-                
-            });
             Product = (IList<Product>)productRepositoty.GetProductListAdmin();
         }
     }

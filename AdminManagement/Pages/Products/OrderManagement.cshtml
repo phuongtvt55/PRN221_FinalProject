@@ -1,0 +1,79 @@
+﻿@page
+@model AdminManagement.Pages.Products.OrderManagementModel
+
+@{
+    ViewData["Title"] = "OrderManagement";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+<h1>OrderManagement</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Order[0].OrderDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Order[0].TotalPrice)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Order[0].Address)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Order[0].Phone)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Order[0].Customer)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Order[0].OrderStatus)
+            </th>
+          
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Order) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.OrderDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TotalPrice)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Address)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Phone)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Customer.Email)
+            </td>
+                @if (item.OrderStatus.OrderStatusId == 1)
+                {
+                    <td class="text text-success">
+                        @Html.DisplayFor(modelItem => item.OrderStatus.StatusName)
+                    </td>
+                }
+                else if (item.OrderStatus.OrderStatusId == 2)
+                {
+                    <td class="text text-danger">
+                        @Html.DisplayFor(modelItem => item.OrderStatus.StatusName)
+                    </td>
+                }else if(item.OrderStatus.OrderStatusId == 3)
+                {
+                    <td class="text text-danger">
+                        <form method="post">
+                            <input type="hidden" name="id" asp-for="@item.OrderId">
+                            <button class="btn btn-success" type="submit" name="action" value="confirm">Confirm</button>
+                            <button class="btn btn-danger" type="submit" name="action" value="cancel">Cancel</button>
+                        </form>
+                    </td>
+                }
+                
+            
+        </tr>
+}
+    </tbody>
+</table>

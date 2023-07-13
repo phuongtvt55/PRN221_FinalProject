@@ -136,6 +136,9 @@ namespace ShoeStore.Controllers
                     IAccountRepository accountRepository = new AccountRepository();
                     var account = accountRepository.GetAccounts();
                     ViewBag.Email = account;
+                    //Get order
+                    var order = context.Orders.Include(o => o.OrderStatus).Where(c => c.CustomerId == cusId).ToList();
+                    ViewBag.Order = order;
                     cart = context.OrderDetails.Include(b => b.Product).Include(o => o.Order).Where(c => c.Order.CustomerId == cusId).ToList();
                 }
             }
@@ -267,7 +270,7 @@ namespace ShoeStore.Controllers
             order.Phone = phone;
             order.CustomerId = cusId.Value;
             order.TotalPrice = total;
-            order.OrderStatusId = 1;
+            order.OrderStatusId = 3;
             List<OrderDetail> list = HttpContext.Session.GetObject<List<OrderDetail>>("cart");
             if(list.Count == 0)
             {
