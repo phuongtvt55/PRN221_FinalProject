@@ -44,12 +44,11 @@
             <div class="form-group">
                 <label asp-for="Product.Status" class="control-label"></label>
                 <input asp-for="Product.Status" class="form-control" hidden/>
-                @if(Model.Product.Status == 1)
-                {
-                    <label class="control-label text-success">Stocking</label>
-                }else{
-                    <label class="control-label text-danger">Delete</label>
-                }
+                <select name="number">
+
+                    <option value="1">Stocking</option>
+                    <option value="0">Delete</option>
+                </select>
                 <span asp-validation-for="Product.Status" class="text-danger"></span>
             </div>
             <div class="form-group">

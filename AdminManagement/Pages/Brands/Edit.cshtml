@@ -12,7 +12,7 @@
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form method="post">
+        <form method="post" enctype="multipart/form-data">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="Brand.BrandId" />
             <div class="form-group">
@@ -29,14 +29,11 @@
             <div class="form-group">
                 <label asp-for="Brand.Status" class="control-label"></label>
                 <input asp-for="Brand.Status" class="form-control" hidden/>
-                @if (Model.Brand.Status == 1)
-                {
-                    <label class="control-label text-success">Stocking</label>
-                }
-                else
-                {
-                    <label class="control-label text-danger">Delete</label>
-                }
+                <select name="number">
+                    
+                    <option value="1">Stocking</option>
+                    <option value="0">Delete</option>
+                </select>
                 <span asp-validation-for="Brand.Status" class="text-danger"></span>
             </div>
             <div class="form-group">

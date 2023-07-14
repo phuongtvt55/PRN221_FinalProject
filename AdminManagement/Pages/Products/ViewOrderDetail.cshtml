@@ -1,0 +1,63 @@
+﻿@page
+@model AdminManagement.Pages.Products.ViewOrderDetailModel
+
+@{
+    ViewData["Title"] = "ViewOrderDetail";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+<h1>ViewOrderDetail</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.OrderDetail[0].Quantity)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.OrderDetail[0].Price)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.OrderDetail[0].Order)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.OrderDetail[0].Product)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.OrderDetail[0].Product.ImageUrl)
+            </th>
+            
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.OrderDetail) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Quantity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Order.OrderId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Product.Name)
+            </td>
+            <td>
+                    <img src="~/@Html.DisplayFor(modelItem => item.Product.ImageUrl)">
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+
+<div>
+    <a asp-page="./OrderManagement">Back to List</a>
+</div>
+<style>
+    img{
+        width: 200px;
+        height: 200px;
+    }
+</style>

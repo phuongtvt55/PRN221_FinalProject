@@ -23,7 +23,7 @@
                         <hc:EventToCommand Command="{Binding SwitchItemCmd}" PassEventArgsToCommand="True" />
                     </hc:EventTrigger>
                 </hc:Interaction.Triggers>
-                <hc:SideMenuItem Header="Dashboard" Background="{x:Null}" Foreground="White">
+                <hc:SideMenuItem Header="Dashboard" Background="{x:Null}" Foreground="White" MouseDoubleClick="SideMenuItem_MouseDoubleClick" >
                     <hc:SideMenuItem.Icon>
                         <Image  Width="24" Height="24" Source="icons8-home-48.png"/>
                     </hc:SideMenuItem.Icon>
@@ -162,7 +162,7 @@
         </lvc:CartesianChart>
         <TextBlock HorizontalAlignment="Left" Height="25" Margin="267,309,0,0" TextWrapping="Wrap" Text="Order Status" VerticalAlignment="Top" Width="140" FontWeight="Bold" Padding="0,5,0,0"/>
         <hc:Card Content="" HorizontalAlignment="Left" Height="235" Margin="615,305,0,0" VerticalAlignment="Top" Width="315" Background="#FFFDFDFD"/>
-        <TextBlock HorizontalAlignment="Left" Height="25" Margin="625,309,0,0" TextWrapping="Wrap" Text="Product Stock" VerticalAlignment="Top" Width="140" FontWeight="Bold" Padding="0,5,0,0"/>
+        <TextBlock HorizontalAlignment="Left" Height="25" Margin="625,309,0,0" TextWrapping="Wrap" Text="Best Seller" VerticalAlignment="Top" Width="140" FontWeight="Bold" Padding="0,5,0,0"/>
         <lvc:PieChart Name="Chart" Series="{Binding DSeriesCollection}" 
                       LegendLocation="Right" InnerRadius="40" Margin="630,334,40,40">
             <lvc:PieChart.ChartLegend>

@@ -54,13 +54,14 @@ namespace AdminManagement.Pages.Products
         {
             try
             {
+                var number = Request.Form["number"];
                 if (id != Product.ProductId)
                 {
                     return NotFound();
                 }
 
                 Product.ImageUrl = await UploadImage(image);
-
+                Product.Status = Convert.ToInt32(number);
                 productRepositoty.Update(Product);
 
                 return RedirectToPage("./Index");

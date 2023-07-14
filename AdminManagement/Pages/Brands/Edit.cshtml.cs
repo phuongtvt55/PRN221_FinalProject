@@ -44,13 +44,14 @@ namespace AdminManagement.Pages.Brands
         // For more details, see https://aka.ms/RazorPagesCRUD.
         public async Task<IActionResult> OnPostAsync(IFormFile image)
         {
-           if(image == null || image.Length == 0)
+            var number = Request.Form["number"];
+            if (image == null || image.Length == 0)
             {
                 return NotFound();
             }
 
             Brand.LogoUrl = await UploadImage(image);
-           
+            Brand.Status = Convert.ToInt32(number);
             _context.Attach(Brand).State = EntityState.Modified;
 
             try

@@ -322,3 +322,4 @@ D:\CodeDao\PRN221_FinalProject\AdminManagement\obj\Debug\net5.0\Razor\Pages\Bran
 D:\CodeDao\PRN221_FinalProject\AdminManagement\obj\Debug\net5.0\Razor\Pages\Brands\Edit.cshtml.g.cs
 D:\CodeDao\PRN221_FinalProject\AdminManagement\obj\Debug\net5.0\Razor\Pages\Brands\Index.cshtml.g.cs
 D:\CodeDao\PRN221_FinalProject\AdminManagement\obj\Debug\net5.0\Razor\Pages\Products\OrderManagement.cshtml.g.cs
+D:\CodeDao\PRN221_FinalProject\AdminManagement\obj\Debug\net5.0\Razor\Pages\Products\ViewOrderDetail.cshtml.g.cs

@@ -30,6 +30,12 @@ namespace DashBoard
         {
             InitializeComponent();
 
+            LoadData();
+
+        }
+
+        public void LoadData()
+        {
             //
             int account = 0;
             int orderTotal = 0;
@@ -49,7 +55,7 @@ namespace DashBoard
                     while (reader.Read())
                     {
                         // Access data from the reader
-                      account = reader.GetInt32(0);
+                        account = reader.GetInt32(0);
                     }
                     reader.Close();
                 }
@@ -69,7 +75,7 @@ namespace DashBoard
                 }
 
                 //Select best seller
-                sqlQuery = "select top 4 COUNT(order_detail.quantity) as TotalOrder, product.name from order_detail inner join \r\nproduct on order_detail.product_id=product.product_id\r\ngroup by product.name\r\norder by TotalOrder desc";
+                sqlQuery = "select top 4 SUM(order_detail.quantity) as TotalOrder, product.name from order_detail inner join \r\nproduct on order_detail.product_id=product.product_id\r\ngroup by product.name\r\norder by TotalOrder desc";
                 using (SqlCommand command = new SqlCommand(sqlQuery, connection))
                 {
                     SqlDataReader reader = command.ExecuteReader();
@@ -105,17 +111,18 @@ namespace DashBoard
             //Bind data
             txtUser.Text = Convert.ToString(account);
             txtOrder.Text = Convert.ToString(orderTotal);
-            txtTotalSale.Text = Convert.ToString(totalSale);    
+            txtTotalSale.Text = Convert.ToString(totalSale);
 
             //Add revenue
-            ArrayList  listRevenue = new ArrayList();
-     
+            ArrayList listRevenue = new ArrayList();
+
             for (double i = 1; i <= 12; i++)
             {
-                foreach(var item in revenue) {
-                    if(item.Month == i)
+                foreach (var item in revenue)
+                {
+                    if (item.Month == i)
                     {
-                        listRevenue.Add(item.TotalPrice);  
+                        listRevenue.Add(item.TotalPrice);
                     }
                 }
                 listRevenue.Add(0d);
@@ -201,11 +208,10 @@ namespace DashBoard
                     Title = item.Name.Substring(0, 10) + "...",
                     Values = new ChartValues<ObservableValue> { new ObservableValue(item.TotalOrder) },
                     DataLabels = true
-                 });
+                });
             }
 
             DataContext = this;
-
         }
 
         public SeriesCollection SeriesCollection { get; set; }
@@ -227,6 +233,11 @@ namespace DashBoard
         private void CartesianChart_Loaded(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private void SideMenuItem_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            LoadData(); 
         }
     }
 

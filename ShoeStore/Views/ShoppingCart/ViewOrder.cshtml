@@ -27,7 +27,7 @@
                 @Html.DisplayNameFor(model => model.Order.OrderDate)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Order.OrderDate)
+                @Html.DisplayNameFor(model => model.Order.OrderStatus)
             </th>
         </tr>
     </thead>
@@ -60,6 +60,8 @@
                             }else if(i.OrderStatusId == 2)
                             {
                                 <p class="btn btn-danger">@i.OrderStatus.StatusName</p>
+                            }else{
+                                <p class="btn btn-dark">@i.OrderStatus.StatusName</p>
                             }
                         </td>
                     }
