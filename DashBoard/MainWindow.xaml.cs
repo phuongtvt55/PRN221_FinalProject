@@ -40,6 +40,7 @@ namespace DashBoard
             int account = 0;
             int orderTotal = 0;
             decimal totalSale = 0;
+            int totalProduct = 0;
             List<BestSeller> bestSeller = new List<BestSeller>();
             List<Revenue> revenue = new List<Revenue>();
             string connectionString = "Data Source=.;Initial Catalog=ShoeStoreManagement;User ID=sa;Password=123456";
@@ -56,6 +57,19 @@ namespace DashBoard
                     {
                         // Access data from the reader
                         account = reader.GetInt32(0);
+                    }
+                    reader.Close();
+                }
+
+                // Select total product
+                sqlQuery = "SELECT COUNT(*) from product";
+                using (SqlCommand command = new SqlCommand(sqlQuery, connection))
+                {
+                    SqlDataReader reader = command.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        // Access data from the reader
+                        totalProduct = reader.GetInt32(0);
                     }
                     reader.Close();
                 }
@@ -112,6 +126,7 @@ namespace DashBoard
             txtUser.Text = Convert.ToString(account);
             txtOrder.Text = Convert.ToString(orderTotal);
             txtTotalSale.Text = Convert.ToString(totalSale);
+            txtProduct.Text = Convert.ToString(totalProduct);
 
             //Add revenue
             ArrayList listRevenue = new ArrayList();
@@ -179,7 +194,7 @@ namespace DashBoard
                     StackMode = StackMode.Percentage,
                     DataLabels = true,
                     LabelPoint = p => p.X.ToString()
-                }
+                }  
             };
 
             //adding series updates and animates the chart

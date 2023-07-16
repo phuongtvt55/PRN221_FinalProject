@@ -160,7 +160,7 @@
                 <lvc:DefaultTooltip SelectionMode="SharedYValues"></lvc:DefaultTooltip>
             </lvc:CartesianChart.DataTooltip>
         </lvc:CartesianChart>
-        <TextBlock HorizontalAlignment="Left" Height="25" Margin="267,309,0,0" TextWrapping="Wrap" Text="Order Status" VerticalAlignment="Top" Width="140" FontWeight="Bold" Padding="0,5,0,0"/>
+        <TextBlock HorizontalAlignment="Left" Height="25" Margin="267,309,0,0" TextWrapping="Wrap" Text="Comming soon" VerticalAlignment="Top" Width="140" FontWeight="Bold" Padding="0,5,0,0"/>
         <hc:Card Content="" HorizontalAlignment="Left" Height="235" Margin="615,305,0,0" VerticalAlignment="Top" Width="315" Background="#FFFDFDFD"/>
         <TextBlock HorizontalAlignment="Left" Height="25" Margin="625,309,0,0" TextWrapping="Wrap" Text="Best Seller" VerticalAlignment="Top" Width="140" FontWeight="Bold" Padding="0,5,0,0"/>
         <lvc:PieChart Name="Chart" Series="{Binding DSeriesCollection}" 
@@ -172,8 +172,8 @@
                 <lvc:DefaultTooltip BulletSize="20"></lvc:DefaultTooltip>
             </lvc:PieChart.DataTooltip>
         </lvc:PieChart>
-        <TextBlock HorizontalAlignment="Left" Height="24.4" Margin="315,125.6,0,0" x:Name="txtvisit" TextWrapping="Wrap" Text="158054" VerticalAlignment="Top" Width="92" FontWeight="Bold" Padding="0" Foreground="White" FontSize="16"/>
-        <TextBlock HorizontalAlignment="Left" Height="24.4" Margin="315,147,0,0" TextWrapping="Wrap" Text="Visits Today" VerticalAlignment="Top" Width="92" Padding="0" Foreground="White"/>
+        <TextBlock HorizontalAlignment="Left" Height="24.4" Margin="315,125.6,0,0" x:Name="txtProduct" TextWrapping="Wrap" Text="158054" VerticalAlignment="Top" Width="92" FontWeight="Bold" Padding="0" Foreground="White" FontSize="16"/>
+        <TextBlock HorizontalAlignment="Left" Height="24.4" Margin="315,147,0,0" TextWrapping="Wrap" Text="Total Product" VerticalAlignment="Top" Width="92" Padding="0" Foreground="White"/>
         <TextBlock HorizontalAlignment="Left" Height="24.4" Margin="495,125.6,0,0" TextWrapping="Wrap" x:Name="txtUser" Text="562" VerticalAlignment="Top" Width="92" FontWeight="Bold" Padding="0" Foreground="White" FontSize="16"/>
         <TextBlock HorizontalAlignment="Left" Height="24.4" Margin="495,147,0,0" TextWrapping="Wrap" Text="New Users" VerticalAlignment="Top" Width="92" Padding="0" Foreground="White"/>
         <TextBlock HorizontalAlignment="Left" Height="24.4" Margin="315,217.2,0,0" TextWrapping="Wrap" x:Name="txtOrder" Text="752" VerticalAlignment="Top" Width="92" FontWeight="Bold" Padding="0" Foreground="White" FontSize="16"/>
