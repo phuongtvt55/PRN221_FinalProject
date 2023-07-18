@@ -79,3 +79,5 @@ D:\CodeDao\PRN221_FinalProject\DashBoard\bin\Debug\System.Threading.Tasks.Extens
 D:\CodeDao\PRN221_FinalProject\DashBoard\bin\Debug\System.ValueTuple.xml
 D:\CodeDao\PRN221_FinalProject\DashBoard\obj\Debug\ChatWindow.g.cs
 D:\CodeDao\PRN221_FinalProject\DashBoard\obj\Debug\ChatWindow.baml
+D:\CodeDao\PRN221_FinalProject\DashBoard\bin\Debug\Newtonsoft.Json.dll
+D:\CodeDao\PRN221_FinalProject\DashBoard\bin\Debug\Newtonsoft.Json.xml

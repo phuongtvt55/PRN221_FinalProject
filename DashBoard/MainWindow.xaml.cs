@@ -2,8 +2,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Data.SqlClient;
+using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Text;
+using System.Text.Json;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -15,6 +18,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using DashBoard.DataAccess;
+using HandyControl.Tools.Extension;
 using LiveCharts;
 using LiveCharts.Defaults;
 using LiveCharts.Wpf;
@@ -26,6 +30,10 @@ namespace DashBoard
     /// </summary>
     public partial class MainWindow : Window
     {
+        JsonSerializerOptions serializerOptions = new JsonSerializerOptions
+        {
+            PropertyNamingPolicy = JsonNamingPolicy.CamelCase
+        };
         public MainWindow()
         {
             InitializeComponent();
@@ -104,7 +112,7 @@ namespace DashBoard
                     reader.Close();
                 }
 
-                //Select revenue
+                /*//Select revenue
                 sqlQuery = "Select YEAR(order_date) as Year, MONTH(order_date) as month,\r\nsum(total_price) as Total_price\r\nfrom [order] where YEAR(order_date)='2023'\r\ngroup by Year(order_date), Month(order_date)\r\norder by Month(order_date) asc";
                 using (SqlCommand command = new SqlCommand(sqlQuery, connection))
                 {
@@ -119,28 +127,47 @@ namespace DashBoard
                         revenue.Add(re);
                     }
                     reader.Close();
-                }
+                }*/
                 connection.Close();
             }
             //Bind data
             txtUser.Text = Convert.ToString(account);
             txtOrder.Text = Convert.ToString(orderTotal);
-            txtTotalSale.Text = Convert.ToString(totalSale);
+            txtTotalSale.Text = "$" + Convert.ToString(totalSale);
             txtProduct.Text = Convert.ToString(totalProduct);
 
             //Add revenue
-            ArrayList listRevenue = new ArrayList();
+            // Get the current directory of the executing assembly
+            string currentDirectory = System.IO.Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
 
+            // Specify the relative path to the JSON file in the other project
+            string filePath = System.IO.Path.Combine(currentDirectory, "..", "..", "..", "WorkerService", "budget.json");
+
+            // Load JSON data from the file
+            string jsonData = File.ReadAllText(filePath);
+
+
+            // Deserialize the JSON data into a list of Revenue objects
+            var revenues = JsonSerializer.Deserialize<List<Budget>>(jsonData, serializerOptions);
+            ArrayList listRevenue = new ArrayList();
+            bool thisMonth = false;
             for (double i = 1; i <= 12; i++)
             {
-                foreach (var item in revenue)
+                thisMonth = false;
+                foreach (var item in revenues)
                 {
-                    if (item.Month == i)
+                    if (item.Month.Equals(Convert.ToString(i)))
                     {
-                        listRevenue.Add(item.TotalPrice);
+                        thisMonth = true;
+                        string[] s = item.TotalPrice.Split('.');
+                        listRevenue.Add(Convert.ToDouble(s[0]));
                     }
+                    
                 }
-                listRevenue.Add(0d);
+                if(!thisMonth)
+                {
+                    listRevenue.Add(0d);
+                }
             }
 
             // Add elements to the ArrayList
@@ -238,6 +265,7 @@ namespace DashBoard
         public Func<double, string> PFormatter { get; set; }
 
         public SeriesCollection DSeriesCollection { get; set; }
+        public object JsonConvert { get; private set; }
 
         private void Window_MouseDown(object sender, MouseButtonEventArgs e)
         {
