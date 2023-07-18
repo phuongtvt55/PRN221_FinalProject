@@ -254,6 +254,13 @@ namespace DashBoard
         {
             LoadData(); 
         }
+
+        //Chat
+        private void SideMenuItem_MouseDoubleClick_1(object sender, MouseButtonEventArgs e)
+        {
+            ChatWindow chatWindow = new ChatWindow();   
+            chatWindow.Show();
+        }
     }
 
 

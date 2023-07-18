@@ -48,7 +48,7 @@
                         <Image  Width="24" Height="24" Source="icons8-statistics-30.png"/>
                     </hc:SideMenuItem.Icon>
                 </hc:SideMenuItem>
-                <hc:SideMenuItem Header="Message" Background="{x:Null}" Foreground="White">
+                <hc:SideMenuItem Header="Chat" Background="{x:Null}" Foreground="White" MouseDoubleClick="SideMenuItem_MouseDoubleClick_1">
                     <hc:SideMenuItem.Icon>
                         <Image  Width="24" Height="24" Source="icons8-message-read-30.png"/>
                     </hc:SideMenuItem.Icon>

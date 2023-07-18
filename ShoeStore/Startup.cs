@@ -25,6 +25,7 @@ namespace ShoeStore
         {
             services.AddSession();
             services.AddControllersWithViews();
+            services.AddSignalR();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -52,6 +53,7 @@ namespace ShoeStore
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=ProductCustomer}/{action=Index}/{id?}");
+                endpoints.MapHub<ChatHub>("/chathub");
             });
         }
 

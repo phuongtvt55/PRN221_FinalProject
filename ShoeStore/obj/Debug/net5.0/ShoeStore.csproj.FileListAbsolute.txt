@@ -516,3 +516,5 @@ D:\CodeDao\PRN221_FinalProject\ShoeStore\obj\Debug\net5.0\refint\ShoeStore.dll
 D:\CodeDao\PRN221_FinalProject\ShoeStore\obj\Debug\net5.0\ShoeStore.pdb
 D:\CodeDao\PRN221_FinalProject\ShoeStore\obj\Debug\net5.0\ShoeStore.genruntimeconfig.cache
 D:\CodeDao\PRN221_FinalProject\ShoeStore\obj\Debug\net5.0\ref\ShoeStore.dll
+D:\CodeDao\PRN221_FinalProject\ShoeStore\bin\Debug\net5.0\libman.json
+D:\CodeDao\PRN221_FinalProject\ShoeStore\obj\Debug\net5.0\Razor\Views\Home\Chat.cshtml.g.cs

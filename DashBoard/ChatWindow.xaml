@@ -1,0 +1,16 @@
+﻿<Window x:Class="DashBoard.ChatWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DashBoard"
+        mc:Ignorable="d"
+        Title="ChatWindow" Height="450" Width="800"
+        Loaded="Window_Loaded">
+    <Grid>
+        <ListBox x:Name="lb" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="0,0,0,109"/>
+        <Button x:Name="btnSend" Click="btnSend_Click" Content="Send" HorizontalAlignment="Left" Margin="706,349,0,0" VerticalAlignment="Top" Height="35" Width="70"/>
+        <TextBox x:Name="txtMess" HorizontalAlignment="Left" Height="35" Margin="14,349,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="669"/>
+
+    </Grid>
+</Window>

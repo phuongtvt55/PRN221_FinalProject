@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using BusinessObject;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using ShoeStore.Models;
 using System;
@@ -21,6 +23,19 @@ namespace ShoeStore.Controllers
         public IActionResult Index()
         {
             return View();
+        }
+
+        public IActionResult Chat()
+        {
+            var cusId = HttpContext.Session.GetInt32("CustomerId");
+            if (cusId == null)
+            {
+                TempData["Error"] = "You must to login first to see order";
+                return RedirectToAction("Index", "Login");
+            }
+            var _context = new ShoesStoreContext();
+            Account account = _context.Accounts.FirstOrDefault(c => c.CustomerId == cusId);
+            return View(account);
         }
 
         public IActionResult Privacy()
