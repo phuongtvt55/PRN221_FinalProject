@@ -54,7 +54,7 @@
                 @Html.DisplayFor(modelItem => item.Customer.Email)
             </td>
             <td>
-                    <a asp-page="./ViewOrderDetail" asp-route-id="@item.OrderId">View</a> |
+                    <a asp-page="./ViewOrderDetail" class="text-primary" asp-route-id="@item.OrderId">View</a> 
             </td>
                 @if (item.OrderStatus.OrderStatusId == 1)
                 {

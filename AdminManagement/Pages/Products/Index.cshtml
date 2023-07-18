@@ -70,9 +70,9 @@
                     <img src="@Html.DisplayFor(modelItem => item.Brand.LogoUrl)">
                 </td>
             <td>
-                <a asp-page="./Edit" asp-route-id="@item.ProductId">Edit</a> |
-                <a asp-page="./Details" asp-route-id="@item.ProductId">Details</a> |
-                <a asp-page="./Delete" asp-route-id="@item.ProductId">Delete</a>
+                <a class="btn btn-light" asp-page="./Edit" asp-route-id="@item.ProductId">Edit</a> 
+                <a class="btn btn-info" asp-page="./Details" asp-route-id="@item.ProductId">Details</a> 
+                <a class="btn btn-danger" asp-page="./Delete" asp-route-id="@item.ProductId">Delete</a>
             </td>
         </tr>
 }

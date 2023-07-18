@@ -296,7 +296,6 @@ D:\CodeDao\PRN221_FinalProject\AdminManagement\obj\Debug\net5.0\AdminManagement.
 D:\CodeDao\PRN221_FinalProject\AdminManagement\obj\Debug\net5.0\AdminManagement.TagHelpers.output.cache
 D:\CodeDao\PRN221_FinalProject\AdminManagement\obj\Debug\net5.0\AdminManagement.RazorCoreGenerate.cache
 D:\CodeDao\PRN221_FinalProject\AdminManagement\obj\Debug\net5.0\Razor\Pages\Error.cshtml.g.cs
-D:\CodeDao\PRN221_FinalProject\AdminManagement\obj\Debug\net5.0\Razor\Pages\Index.cshtml.g.cs
 D:\CodeDao\PRN221_FinalProject\AdminManagement\obj\Debug\net5.0\Razor\Pages\Privacy.cshtml.g.cs
 D:\CodeDao\PRN221_FinalProject\AdminManagement\obj\Debug\net5.0\Razor\Pages\Products\Create.cshtml.g.cs
 D:\CodeDao\PRN221_FinalProject\AdminManagement\obj\Debug\net5.0\Razor\Pages\Products\Delete.cshtml.g.cs
@@ -323,3 +322,4 @@ D:\CodeDao\PRN221_FinalProject\AdminManagement\obj\Debug\net5.0\Razor\Pages\Bran
 D:\CodeDao\PRN221_FinalProject\AdminManagement\obj\Debug\net5.0\Razor\Pages\Brands\Index.cshtml.g.cs
 D:\CodeDao\PRN221_FinalProject\AdminManagement\obj\Debug\net5.0\Razor\Pages\Products\OrderManagement.cshtml.g.cs
 D:\CodeDao\PRN221_FinalProject\AdminManagement\obj\Debug\net5.0\Razor\Pages\Products\ViewOrderDetail.cshtml.g.cs
+D:\CodeDao\PRN221_FinalProject\AdminManagement\obj\Debug\net5.0\Razor\Pages\Index.cshtml.g.cs
